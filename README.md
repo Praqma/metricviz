@@ -17,8 +17,3 @@ The proof of concept implementation will include:
 * Usage documentation
 * Unit tests
 * A continuous delivery pipeline for the software
-
-
-## Tasks
-
-* #1 Investigate treemaps and HTML snippets
