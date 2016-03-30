@@ -1,2 +1,2 @@
-# codeviz
+# metricviz
 Code metrics visualization POC
