@@ -1,7 +1,9 @@
 # Code Metrics Visualization POC
 
 A tool for generating HTML visualizations of code metrics. As a proof-of-concept, the
-first visualization is to create treemaps of CSV data.
+first visualization is to create treemaps of CSV data like in this example:
+
+![Example metrics](http://www.josra.org/images/metrics.png)
 
 See also the description in [Josra](http://www.josra.org/sow/codeviz.html)
 
