@@ -18,6 +18,13 @@ public class Main {
   public static void main(String[] args) throws Exception {
     logger.info("metricviz - started");
 
+    if (args.length < 1) {
+      logger.error("Usage: metricviz <input-file>");
+      return;
+    }
+    String inputFilePath = args[0];
+    logger.info("Input file path: {}", inputFilePath);
+
     try {
       Path outputPath = Paths.get("output.html");
       HtmlWriter.write(outputPath);

@@ -8,6 +8,13 @@ first visualization is to create treemaps of CSV data like in this example:
 See also the description in [Josra](http://www.josra.org/sow/codeviz.html)
 
 
+## Quick start
+
+```sh
+$ ./gradlew run -Pinput=doc/input-example.csv
+```
+
+
 ## Deliverables
 
 The proof of concept implementation will include:

@@ -23,3 +23,9 @@ jar {
     attributes 'Main-Class': mainClassName
   }
 }
+
+run {
+  if (project.hasProperty('input')) {
+    args input
+  }
+}
