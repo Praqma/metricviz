@@ -8,12 +8,17 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.praqma.metricviz.Resources;
 
 /**
  * Writes HTML output.
  */
 public class HtmlWriter {
+
+  private static final Logger logger = LoggerFactory.getLogger(HtmlWriter.class);
 
   /** Temporary static data. */
   private static final String DATA =
@@ -51,6 +56,7 @@ public class HtmlWriter {
    * @param output Output file path
    */
   public static void write(Path outputPath) throws IOException {
+    logger.info("Writing output to {}", outputPath);
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outputPath))) {
       writeHeader(writer);
       writeData(writer);

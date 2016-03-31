@@ -3,6 +3,9 @@ package com.praqma.metricviz;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.praqma.metricviz.write.HtmlWriter;
 
 /**
@@ -10,19 +13,19 @@ import com.praqma.metricviz.write.HtmlWriter;
  */
 public class Main {
 
+  private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
   public static void main(String[] args) throws Exception {
-    System.out.println("metricviz - started");
+    logger.info("metricviz - started");
 
     try {
       Path outputPath = Paths.get("output.html");
-      System.out.println("Writing output to " + outputPath);
       HtmlWriter.write(outputPath);
     } catch (Exception e) {
-      e.printStackTrace();
-      System.err.println("metricviz - Error: " + e.getMessage());
+      logger.error("metricviz - Error", e);
     }
 
-    System.out.println("metricviz - done");
+    logger.info("metricviz - done");
   }
 
 }
