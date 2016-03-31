@@ -15,3 +15,7 @@ The input file must be a CSV file with lines having at least these colums:
   * A code metric represented as a number
   * Determines the item's color
   * For example code complexity or number of duplicated lines
+
+## Example
+
+An example CSV file is here: [input-example.csv](input-example.csv).
