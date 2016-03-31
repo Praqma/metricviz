@@ -22,6 +22,6 @@ The proof of concept implementation will include:
 ## Input formats
 
 The proof of concept supports a CSV input file as described in
-[docs/input-format.md](docs/input-format.md). The tool may later be extended to support
+[doc/input-format.md](doc/input-format.md). The tool may later be extended to support
 other structured formats like JSON or XML. The support may be driven by the choice of
 code analysis tools used to generate data.
