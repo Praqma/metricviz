@@ -2,5 +2,11 @@
 .gradle
 build
 
+# Eclipse artifacts
+.classpath
+.project
+.settings
+bin
+
 # Program output
 output.html
