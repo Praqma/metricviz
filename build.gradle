@@ -1,0 +1,18 @@
+apply plugin: 'application'
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = 'com.praqma.metricviz.Main'
+
+jar {
+  version = '0.1.0'
+  manifest {
+    attributes 'Main-Class': mainClassName
+  }
+}

@@ -1,0 +1,6 @@
+# Gradle
+.gradle
+build
+
+# Program output
+output.html
