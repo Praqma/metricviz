@@ -48,7 +48,7 @@ public class CsvReaderTest {
 
   @Test
   public void testReadTopicNotEnoughFields() throws Exception {
-    subject = getReader("readTopicNotEnoughFields.csv");
+    subject = getReader("/csvReaderTest/readTopicNotEnoughFields.csv");
     exception.expect(ReaderException.class);
     exception.expectMessage("parse error");
     exception.expectMessage("line: 1");
@@ -68,7 +68,7 @@ public class CsvReaderTest {
 
   @Test
   public void testReadNotEnoughFields() throws Exception {
-    subject = getReader("readNotEnoughFields.csv");
+    subject = getReader("/csvReaderTest/readNotEnoughFields.csv");
     subject.readTopic(); // Must be done first
     exception.expect(ReaderException.class);
     exception.expectMessage("parse error");
@@ -78,7 +78,7 @@ public class CsvReaderTest {
 
   @Test
   public void testReadSizeNotInteger() throws Exception {
-    subject = getReader("readSizeNotInteger.csv");
+    subject = getReader("/csvReaderTest/readSizeNotInteger.csv");
     subject.readTopic(); // Must be done first
     exception.expect(ReaderException.class);
     exception.expectMessage("size");
@@ -88,7 +88,7 @@ public class CsvReaderTest {
 
   @Test
   public void testReadMetricNotInteger() throws Exception {
-    subject = getReader("readMetricNotInteger.csv");
+    subject = getReader("/csvReaderTest/readMetricNotInteger.csv");
     subject.readTopic(); // Must be done first
     exception.expect(ReaderException.class);
     exception.expectMessage("metric");
@@ -123,13 +123,13 @@ public class CsvReaderTest {
   }
 
   private static CsvReader getReader(String inputFileName) {
-    File input = new File(CsvReaderTest.class.getResource("/csvReaderTest/" + inputFileName).getFile());
+    File input = new File(CsvReaderTest.class.getResource(inputFileName).getFile());
     return new CsvReader(input);
   }
 
   /** For sunshine tests or tests that do not depend on the file contents. */
   private static CsvReader getDefaultReader() {
-    return getReader("input.csv");
+    return getReader("/input.csv");
   }
 
 }
