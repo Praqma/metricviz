@@ -27,6 +27,10 @@ jar {
 }
 
 test {
+  afterTest { desc, result ->
+    println "${desc.name} [${desc.className}] : ${result.resultType}"
+  }
+
   testLogging {
     exceptionFormat 'full'
   }
