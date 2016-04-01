@@ -5,26 +5,45 @@ package com.praqma.metricviz;
  */
 final class Arguments {
 
-  private final String inputFilePath;
+  private static final String KEY_INPUT = "--input=";
+  private static final String KEY_OUTPUT = "--output=";
+  private static final String USAGE = "Usage: metricviz --input=<input-file> --output=<output-file>";
 
-  private Arguments(String inputFilePath) {
-    this.inputFilePath = inputFilePath;
-  }
+  private String inputFilePath;
+  private String outputFilePath;
 
   /**
    * Read command line arguments.
    */
   static Arguments get(String[] args) {
-    if (args.length < 1) {
-      throw new IllegalArgumentException("Usage: metricviz <input-file>");
+    Arguments arguments = new Arguments();
+    for (String arg : args) {
+      if (arg.startsWith(KEY_INPUT)) {
+        arguments.inputFilePath = arg.substring(KEY_INPUT.length());
+      } else if (arg.startsWith(KEY_OUTPUT)) {
+        arguments.outputFilePath = arg.substring(KEY_OUTPUT.length());
+      }
     }
-    String inputFilePath = args[0];
-//    logger.info("Input file path: {}", inputFilePath);
-    return new Arguments(inputFilePath);
+
+    validate(arguments);
+    return arguments;
+  }
+
+  private static void validate(Arguments arguments) {
+    if (arguments.inputFilePath == null) {
+      throw new IllegalArgumentException(USAGE);
+    }
+    if (arguments.outputFilePath == null) {
+      throw new IllegalArgumentException(USAGE);
+    }
   }
 
   String getInputFilePath() {
     return inputFilePath;
   }
 
+  String getOutputFilePath() {
+    return outputFilePath;
+  }
+  
 }

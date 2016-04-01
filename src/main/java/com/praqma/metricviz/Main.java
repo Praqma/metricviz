@@ -22,7 +22,7 @@ public class Main {
       Arguments arguments = Arguments.get(args);
 
       try (Reader reader = ReaderFactory.getReader(arguments.getInputFilePath());
-          Writer writer = new HtmlWriter("output.html")) {
+          Writer writer = new HtmlWriter(arguments.getOutputFilePath())) {
         Converter converter = new Converter(reader, writer);
         converter.convert();
       }

@@ -25,7 +25,12 @@ jar {
 }
 
 run {
+  def arguments = []
   if (project.hasProperty('input')) {
-    args input
+    arguments.push("--input=${input}")
   }
+  if (project.hasProperty('output')) {
+    arguments.push("--output=${output}")
+  }
+  args arguments
 }
