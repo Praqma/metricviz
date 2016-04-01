@@ -35,7 +35,7 @@ equivalents (with `.bat` extension).
 ### Building
 
 ```sh
-$ ./gradlew installApp
+$ ./gradlew installDist
 ```
 
 Produces an executable in `build/install/metricviz`.
@@ -43,7 +43,7 @@ Produces an executable in `build/install/metricviz`.
 ### Running
 
 ```sh
-$ cd build/install/metricviz/bin
+$ cd build/install/metricviz/bin/
 $ ./metricviz --input=<input-file.csv> --output=<output-file.html>
 ```
 
