@@ -61,3 +61,11 @@ code analysis tools used to generate data.
 The tool writes an HTML file that uses
 [Google Treemaps](https://developers.google.com/chart/interactive/docs/gallery/treemap#overview)
 to create a drill-down treemap visualization of the input.
+
+
+## Javadoc
+
+```sh
+$ ./gradlew javadoc
+$ cd build/docs/javadoc/
+```
