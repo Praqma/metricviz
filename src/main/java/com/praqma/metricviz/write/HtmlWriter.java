@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +44,7 @@ public class HtmlWriter implements Writer {
   public void writeHeader() throws IOException {
     openWriterIfNeeded();
     InputStream header = Resources.getHtmlHeader();
-    writeStream(header);
+    IOUtils.copy(header, writer);
   }
 
   @Override
@@ -80,17 +81,7 @@ public class HtmlWriter implements Writer {
   public void writeFooter() throws IOException {
     openWriterIfNeeded();
     InputStream footer = Resources.getHtmlFooter();
-    writeStream(footer);
-  }
-
-  private void writeStream(InputStream stream) throws IOException {
-    try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
-      String line = reader.readLine();
-      while (line != null) {
-        writer.println(line);
-        line = reader.readLine();
-      }
-    }
+    IOUtils.copy(footer, writer);
   }
 
   private void openWriterIfNeeded() throws IOException {
