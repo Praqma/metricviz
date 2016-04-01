@@ -18,14 +18,14 @@ public interface Writer extends AutoCloseable {
   /**
    * Writes an initial row of titles in the code metric data table.
    */
-  void writeTopic(Topic topic);
+  void writeTopic(Topic topic) throws IOException;
 
   /**
    * Writes a code metric.
    *
    * @param fileMetric Code metric to write
    */
-  void write(FileMetric fileMetric);
+  void write(FileMetric fileMetric) throws IOException;
 
   /**
    * Writes footer content after code metric data.

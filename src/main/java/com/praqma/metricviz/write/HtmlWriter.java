@@ -41,14 +41,14 @@ public class HtmlWriter implements Writer {
 
   @Override
   public void writeHeader() throws IOException {
-    writer = new PrintWriter(Files.newBufferedWriter(Paths.get(outputPath)));
-
+    openWriterIfNeeded();
     InputStream header = Resources.getHtmlHeader();
     writeStream(header);
   }
 
   @Override
-  public void writeTopic(Topic topic) {
+  public void writeTopic(Topic topic) throws IOException {
+    openWriterIfNeeded();
     String data = String.format("['%s', '%s', '%s', '%s'],",
         topic.getNodeId(),
         topic.getParentId(),
@@ -58,7 +58,8 @@ public class HtmlWriter implements Writer {
   }
 
   @Override
-  public void write(FileMetric fileMetric) {
+  public void write(FileMetric fileMetric) throws IOException {
+    openWriterIfNeeded();
     String data = String.format("['%s', %s, %d, %d],",
         fileMetric.getFilename(),
         formatParent(fileMetric),
@@ -77,6 +78,7 @@ public class HtmlWriter implements Writer {
 
   @Override
   public void writeFooter() throws IOException {
+    openWriterIfNeeded();
     InputStream footer = Resources.getHtmlFooter();
     writeStream(footer);
   }
@@ -88,6 +90,12 @@ public class HtmlWriter implements Writer {
         writer.println(line);
         line = reader.readLine();
       }
+    }
+  }
+
+  private void openWriterIfNeeded() throws IOException {
+    if (writer == null) {
+      writer = new PrintWriter(Files.newBufferedWriter(Paths.get(outputPath)));
     }
   }
 
