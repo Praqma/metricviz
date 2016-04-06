@@ -1,4 +1,4 @@
-# Code Metrics Visualization POC
+# MetricViz - Code Metrics Visualization
 
 A tool for generating HTML visualizations of code metrics. As a proof of concept, the
 first visualization is to create treemaps of CSV data like in this example:
@@ -8,20 +8,24 @@ first visualization is to create treemaps of CSV data like in this example:
 See also the description in [Josra](http://www.josra.org/sow/codeviz.html)
 
 
-## Quick start
+## Quick start demo
+
+Try the simple demo:
 
 ```sh
-$ ./run.sh
+$ ./demo.sh
 ```
 
 or
 
 ```sh
-> run.bat
+> demo.bat
 ```
 
-The `run` script runs the tool with [doc/input-example.csv](doc/input-example.csv) as
+The `demo` scripts run the tool with [doc/input-example.csv](doc/input-example.csv) as
 input and produces output in `output.html`.
+
+Open output.html in a browser to see the generated treemap. Click the squares to drill down. You navigate back to parent level using right mouse click.          
 
 
 ## Usage
@@ -34,6 +38,9 @@ equivalents (with `.bat` extension).
 
 ### Building
 
+Java 1.8 is required, but currently you can compile with 1.7 (defined in `build.gradle`)
+
+
 ```sh
 $ ./gradlew installDist
 ```
@@ -45,6 +52,13 @@ Produces an executable in `build/install/metricviz`.
 ```sh
 $ cd build/install/metricviz/bin/
 $ ./metricviz --input=<input-file.csv> --output=<output-file.html>
+```
+
+### Javadoc
+
+```sh
+$ ./gradlew javadoc
+$ cd build/docs/javadoc/
 ```
 
 
@@ -63,9 +77,3 @@ The tool writes an HTML file that uses
 to create a drill-down treemap visualization of the input.
 
 
-## Javadoc
-
-```sh
-$ ./gradlew javadoc
-$ cd build/docs/javadoc/
-```
