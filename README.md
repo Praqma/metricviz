@@ -1,5 +1,10 @@
 # MetricViz - Code Metrics Visualization
 
+<span class="badges">
+[![Build Status](https://travis-ci.org/Praqma/metricviz.svg?branch=master)](https://travis-ci.org/Praqma/metricviz)
+[![Coverage Status](https://coveralls.io/repos/Praqma/metricviz/badge.png)](https://coveralls.io/github/Praqma/metricviz)
+</span>
+
 A tool for generating HTML visualizations of code metrics. As a proof of concept, the
 first visualization is to create treemaps of CSV data like in this example:
 
@@ -25,7 +30,7 @@ or
 The `demo` scripts run the tool with [doc/input-example.csv](doc/input-example.csv) as
 input and produces output in `output.html`.
 
-Open output.html in a browser to see the generated treemap. Click the squares to drill down. You navigate back to parent level using right mouse click.          
+Open output.html in a browser to see the generated treemap. Click the squares to drill down. You navigate back to parent level using right mouse click.
 
 
 ## Usage
@@ -75,5 +80,3 @@ code analysis tools used to generate data.
 The tool writes an HTML file that uses
 [Google Treemaps](https://developers.google.com/chart/interactive/docs/gallery/treemap#overview)
 to create a drill-down treemap visualization of the input.
-
-
