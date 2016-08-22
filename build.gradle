@@ -1,8 +1,13 @@
-apply plugin: 'application'
-apply plugin: 'java'
+plugins {
+  id 'application'
+  id 'java'
+
+  id 'com.github.kt3k.coveralls' version '2.6.3'
+  id 'net.saliman.cobertura' version '2.3.2'
+}
 
 repositories {
-    jcenter()
+  jcenter()
 }
 
 dependencies {
@@ -46,4 +51,8 @@ run {
     arguments.push("--output=${output}")
   }
   args arguments
+}
+
+cobertura {
+  coverageFormats = [ 'html', 'xml' ] // coveralls depends on xml report
 }
