@@ -1,3 +1,7 @@
+---
+maintainer: buep
+---
+
 # MetricViz - Code Metrics Visualization
 
 <span class="badges">
